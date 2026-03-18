@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.service;
+package com.smartschoolhub.service;
 
 import com.smartschoolhub.domain.UserAccount;
 import com.smartschoolhub.service.dto.AuthResponse;

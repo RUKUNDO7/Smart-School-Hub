@@ -14,6 +14,7 @@ import com.smartschoolhub.repository.TeacherEvaluationRepository;
 import com.smartschoolhub.repository.TeacherRepository;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,11 +64,15 @@ public class ReportsService {
     public Map<String, Object> financeReport() {
         Map<String, Object> report = new HashMap<>();
         List<Fee> fees = feeRepository.findAll();
-        double totalDue = fees.stream().mapToDouble(fee -> fee.getAmountDue() != null ? fee.getAmountDue() : 0).sum();
-        double totalPaid = fees.stream().mapToDouble(fee -> fee.getAmountPaid() != null ? fee.getAmountPaid() : 0).sum();
+        BigDecimal totalDue = fees.stream()
+            .map(fee -> fee.getAmountDue() != null ? fee.getAmountDue() : BigDecimal.ZERO)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal totalPaid = fees.stream()
+            .map(fee -> fee.getAmountPaid() != null ? fee.getAmountPaid() : BigDecimal.ZERO)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
         report.put("totalFeesDue", totalDue);
         report.put("totalFeesPaid", totalPaid);
-        report.put("outstanding", totalDue - totalPaid);
+        report.put("outstanding", totalDue.subtract(totalPaid));
         return report;
     }
 

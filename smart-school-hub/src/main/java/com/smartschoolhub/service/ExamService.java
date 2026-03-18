@@ -8,10 +8,13 @@ import com.smartschoolhub.repository.SchoolClassRepository;
 import com.smartschoolhub.repository.SubjectRepository;
 import com.smartschoolhub.service.dto.ExamRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @Service
+@Transactional
 public class ExamService {
     private final ExamRepository examRepository;
     private final SchoolClassRepository schoolClassRepository;
@@ -25,8 +28,8 @@ public class ExamService {
         this.subjectRepository = subjectRepository;
     }
 
-    public List<Exam> getAll() {
-        return examRepository.findAll();
+    public Page<Exam> getAll(Pageable pageable) {
+        return examRepository.findAll(pageable);
     }
 
     public Exam getById(Long id) {

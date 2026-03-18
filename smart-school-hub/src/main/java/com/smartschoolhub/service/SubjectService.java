@@ -8,10 +8,12 @@ import com.smartschoolhub.repository.SubjectRepository;
 import com.smartschoolhub.repository.TeacherRepository;
 import com.smartschoolhub.service.dto.SubjectRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class SubjectService {
     private final SubjectRepository subjectRepository;
     private final SchoolClassRepository schoolClassRepository;

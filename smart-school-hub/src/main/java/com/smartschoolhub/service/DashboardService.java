@@ -10,6 +10,7 @@ import com.smartschoolhub.repository.TeacherRepository;
 import com.smartschoolhub.service.dto.DashboardSummary;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Service
@@ -44,8 +45,12 @@ public class DashboardService {
         summary.setExamCount(examRepository.count());
 
         List<Fee> fees = feeRepository.findAll();
-        double totalDue = fees.stream().mapToDouble(fee -> fee.getAmountDue() != null ? fee.getAmountDue() : 0).sum();
-        double totalPaid = fees.stream().mapToDouble(fee -> fee.getAmountPaid() != null ? fee.getAmountPaid() : 0).sum();
+        BigDecimal totalDue = fees.stream()
+            .map(fee -> fee.getAmountDue() != null ? fee.getAmountDue() : BigDecimal.ZERO)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+        BigDecimal totalPaid = fees.stream()
+            .map(fee -> fee.getAmountPaid() != null ? fee.getAmountPaid() : BigDecimal.ZERO)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
         summary.setTotalFeesDue(totalDue);
         summary.setTotalFeesPaid(totalPaid);
         return summary;

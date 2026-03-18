@@ -8,10 +8,14 @@ import com.smartschoolhub.repository.GradeRepository;
 import com.smartschoolhub.repository.StudentRepository;
 import com.smartschoolhub.service.dto.GradeRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @Service
+@Transactional
 public class GradeService {
     private final GradeRepository gradeRepository;
     private final StudentRepository studentRepository;
@@ -23,8 +27,8 @@ public class GradeService {
         this.examRepository = examRepository;
     }
 
-    public List<Grade> getAll() {
-        return gradeRepository.findAll();
+    public Page<Grade> getAll(Pageable pageable) {
+        return gradeRepository.findAll(pageable);
     }
 
     public Grade getById(Long id) {

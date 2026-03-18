@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.service;
+package com.smartschoolhub.service;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

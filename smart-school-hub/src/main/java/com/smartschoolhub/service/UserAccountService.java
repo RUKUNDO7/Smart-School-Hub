@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.service;
+package com.smartschoolhub.service;
 
 import com.smartschoolhub.domain.Student;
 import com.smartschoolhub.domain.Teacher;
@@ -12,8 +12,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class UserAccountService implements UserDetailsService {
     private final UserAccountRepository userAccountRepository;
     private final StudentRepository studentRepository;

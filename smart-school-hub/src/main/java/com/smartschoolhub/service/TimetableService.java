@@ -10,10 +10,12 @@ import com.smartschoolhub.repository.TeacherRepository;
 import com.smartschoolhub.repository.TimetableEntryRepository;
 import com.smartschoolhub.service.dto.TimetableEntryRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class TimetableService {
     private final TimetableEntryRepository timetableEntryRepository;
     private final SchoolClassRepository schoolClassRepository;

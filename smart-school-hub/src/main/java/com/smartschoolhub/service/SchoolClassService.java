@@ -6,10 +6,12 @@ import com.smartschoolhub.repository.SchoolClassRepository;
 import com.smartschoolhub.repository.TeacherRepository;
 import com.smartschoolhub.service.dto.SchoolClassRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class SchoolClassService {
     private final SchoolClassRepository schoolClassRepository;
     private final TeacherRepository teacherRepository;

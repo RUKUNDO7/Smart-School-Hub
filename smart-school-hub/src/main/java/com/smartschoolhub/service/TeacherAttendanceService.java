@@ -6,11 +6,13 @@ import com.smartschoolhub.repository.TeacherAttendanceRepository;
 import com.smartschoolhub.repository.TeacherRepository;
 import com.smartschoolhub.service.dto.TeacherAttendanceRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 
 @Service
+@Transactional
 public class TeacherAttendanceService {
     private final TeacherAttendanceRepository teacherAttendanceRepository;
     private final TeacherRepository teacherRepository;
