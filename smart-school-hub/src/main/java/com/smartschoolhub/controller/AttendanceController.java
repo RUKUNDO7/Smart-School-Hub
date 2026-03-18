@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.domain.Attendance;
 import com.smartschoolhub.service.AttendanceService;
@@ -10,6 +10,8 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -22,9 +24,9 @@ public class AttendanceController {
     }
 
     @GetMapping
-    @PreAuthorize("hasAnyRole('ADMIN','TEACHER')")
-    public List<Attendance> getAll() {
-        return attendanceService.getAll();
+    @PreAuthorize("hasAnyRole('ADMIN','TEACHER','PARENT')")
+    public Page<Attendance> getAll(Pageable pageable) {
+        return attendanceService.getAll(pageable);
     }
 
     @GetMapping("/{id}")

@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.service.AuthService;
 import com.smartschoolhub.service.dto.AuthResponse;

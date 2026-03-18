@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.domain.Fee;
 import com.smartschoolhub.service.FeeService;
@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import java.util.List;
 
 @RestController
@@ -21,9 +23,9 @@ public class FeeController {
     }
 
     @GetMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    public List<Fee> getAll() {
-        return feeService.getAll();
+    @PreAuthorize("hasAnyRole('ADMIN','PARENT')")
+    public Page<Fee> getAll(Pageable pageable) {
+        return feeService.getAll(pageable);
     }
 
     @GetMapping("/{id}")

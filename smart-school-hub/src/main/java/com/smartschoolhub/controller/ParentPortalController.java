@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.service.ParentPortalService;
 import com.smartschoolhub.service.dto.StudentProgress;

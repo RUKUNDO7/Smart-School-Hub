@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.domain.Student;
 import com.smartschoolhub.service.StudentService;
@@ -9,7 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/api/students")
@@ -22,8 +23,8 @@ public class StudentController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('ADMIN','TEACHER','PARENT','STUDENT')")
-    public List<Student> getAll() {
-        return studentService.getAll();
+    public Page<Student> getAll(Pageable pageable) {
+        return studentService.getAll(pageable);
     }
 
     @GetMapping("/{id}")

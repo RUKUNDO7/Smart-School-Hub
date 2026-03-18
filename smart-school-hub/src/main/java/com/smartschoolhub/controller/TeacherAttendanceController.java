@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.controller;
+package com.smartschoolhub.controller;
 
 import com.smartschoolhub.domain.TeacherAttendance;
 import com.smartschoolhub.service.TeacherAttendanceService;
