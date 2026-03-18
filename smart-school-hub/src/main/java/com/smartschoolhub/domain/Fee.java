@@ -3,6 +3,7 @@ package com.smartschoolhub.domain;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -18,10 +19,10 @@ public class Fee {
     private Student student;
 
     @Column(nullable = false)
-    private Double amountDue;
+    private BigDecimal amountDue;
 
     @Column(nullable = false)
-    private Double amountPaid;
+    private BigDecimal amountPaid;
 
     @Column(nullable = false)
     private LocalDate dueDate;
@@ -46,19 +47,19 @@ public class Fee {
         this.student = student;
     }
 
-    public Double getAmountDue() {
+    public BigDecimal getAmountDue() {
         return amountDue;
     }
 
-    public void setAmountDue(Double amountDue) {
+    public void setAmountDue(BigDecimal amountDue) {
         this.amountDue = amountDue;
     }
 
-    public Double getAmountPaid() {
+    public BigDecimal getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(Double amountPaid) {
+    public void setAmountPaid(BigDecimal amountPaid) {
         this.amountPaid = amountPaid;
     }
 

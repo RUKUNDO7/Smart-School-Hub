@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.domain;
+package com.smartschoolhub.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

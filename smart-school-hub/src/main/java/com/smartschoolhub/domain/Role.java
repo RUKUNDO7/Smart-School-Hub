@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.domain;
+package com.smartschoolhub.domain;
 
 public enum Role {
     ADMIN,
