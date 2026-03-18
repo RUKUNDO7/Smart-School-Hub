@@ -27,6 +27,7 @@ target/
 build/
 .gradle/
 .m2/
+src/test/resources/
 
 # IDE files
 .idea/
