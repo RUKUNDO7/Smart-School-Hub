@@ -6,13 +6,13 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class AttendanceRequest {
-    @NotNull
+    @NotNull(message = "Student ID is required")
     private Long studentId;
 
-    @NotNull
+    @NotNull(message = "Date is required")
     private LocalDate date;
 
-    @NotNull
+    @NotNull(message = "Attendance status is required")
     private AttendanceStatus status;
 
     public Long getStudentId() {

@@ -1,12 +1,14 @@
-﻿package com.smartschoolhub.service.dto;
+package com.smartschoolhub.service.dto;
 
 import jakarta.validation.constraints.NotBlank;
 
 public class LoginRequest {
-    @NotBlank
+    @NotBlank(message = "Username is required")
+    @jakarta.validation.constraints.Size(min = 3, max = 50)
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "Password is required")
+    @jakarta.validation.constraints.Size(min = 6)
     private String password;
 
     public String getUsername() {

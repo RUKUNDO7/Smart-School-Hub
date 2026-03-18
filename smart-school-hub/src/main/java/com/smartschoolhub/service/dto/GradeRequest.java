@@ -1,6 +1,8 @@
 package com.smartschoolhub.service.dto;
 
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Max;
 
 public class GradeRequest {
     @NotNull
@@ -9,7 +11,9 @@ public class GradeRequest {
     @NotNull
     private Long examId;
 
-    @NotNull
+    @NotNull(message = "Marks are required")
+    @Min(value = 0, message = "Marks cannot be negative")
+    @Max(value = 100, message = "Marks cannot exceed 100")
     private Double marks;
 
     public Long getStudentId() {

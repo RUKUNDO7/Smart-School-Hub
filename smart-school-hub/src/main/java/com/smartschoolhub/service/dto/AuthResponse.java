@@ -1,4 +1,4 @@
-﻿package com.smartschoolhub.service.dto;
+package com.smartschoolhub.service.dto;
 
 public class AuthResponse {
     private String token;

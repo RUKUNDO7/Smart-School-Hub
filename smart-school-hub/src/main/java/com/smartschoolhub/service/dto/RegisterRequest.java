@@ -1,14 +1,16 @@
-﻿package com.smartschoolhub.service.dto;
+package com.smartschoolhub.service.dto;
 
 import com.smartschoolhub.domain.Role;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class RegisterRequest {
-    @NotBlank
+    @NotBlank(message = "Username is required")
+    @jakarta.validation.constraints.Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "Password is required")
+    @jakarta.validation.constraints.Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
     @NotNull

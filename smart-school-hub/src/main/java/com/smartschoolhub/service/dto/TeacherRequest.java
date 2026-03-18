@@ -1,22 +1,23 @@
 package com.smartschoolhub.service.dto;
 
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.Set;
 
 public class TeacherRequest {
-    @NotBlank
+    @NotBlank(message = "First name is required")
+    @jakarta.validation.constraints.Size(min = 2, max = 50)
     private String firstName;
 
-    @NotBlank
+    @NotBlank(message = "Last name is required")
+    @jakarta.validation.constraints.Size(min = 2, max = 50)
     private String lastName;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "Email is required")
+    @jakarta.validation.constraints.Email(message = "Invalid email format")
     private String email;
 
-    @NotBlank
+    @jakarta.validation.constraints.Pattern(regexp = "^\\+?[0-9]{10,15}$", message = "Invalid phone number")
     private String phone;
 
     private Set<Long> subjectIds;

@@ -1,13 +1,15 @@
 package com.smartschoolhub.service.dto;
 
+import java.math.BigDecimal;
+
 public class DashboardSummary {
     private long studentCount;
     private long teacherCount;
     private long classCount;
     private long subjectCount;
     private long examCount;
-    private double totalFeesDue;
-    private double totalFeesPaid;
+    private BigDecimal totalFeesDue;
+    private BigDecimal totalFeesPaid;
 
     public long getStudentCount() {
         return studentCount;
@@ -49,19 +51,19 @@ public class DashboardSummary {
         this.examCount = examCount;
     }
 
-    public double getTotalFeesDue() {
+    public BigDecimal getTotalFeesDue() {
         return totalFeesDue;
     }
 
-    public void setTotalFeesDue(double totalFeesDue) {
+    public void setTotalFeesDue(BigDecimal totalFeesDue) {
         this.totalFeesDue = totalFeesDue;
     }
 
-    public double getTotalFeesPaid() {
+    public BigDecimal getTotalFeesPaid() {
         return totalFeesPaid;
     }
 
-    public void setTotalFeesPaid(double totalFeesPaid) {
+    public void setTotalFeesPaid(BigDecimal totalFeesPaid) {
         this.totalFeesPaid = totalFeesPaid;
     }
 }

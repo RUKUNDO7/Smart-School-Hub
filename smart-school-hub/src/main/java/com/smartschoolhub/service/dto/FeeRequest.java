@@ -2,6 +2,8 @@ package com.smartschoolhub.service.dto;
 
 import com.smartschoolhub.domain.PaymentStatus;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.DecimalMin;
+import java.math.BigDecimal;
 
 import java.time.LocalDate;
 
@@ -10,10 +12,12 @@ public class FeeRequest {
     private Long studentId;
 
     @NotNull
-    private Double amountDue;
+    @DecimalMin("0.0")
+    private BigDecimal amountDue;
 
     @NotNull
-    private Double amountPaid;
+    @DecimalMin("0.0")
+    private BigDecimal amountPaid;
 
     @NotNull
     private LocalDate dueDate;
@@ -29,19 +33,19 @@ public class FeeRequest {
         this.studentId = studentId;
     }
 
-    public Double getAmountDue() {
+    public BigDecimal getAmountDue() {
         return amountDue;
     }
 
-    public void setAmountDue(Double amountDue) {
+    public void setAmountDue(BigDecimal amountDue) {
         this.amountDue = amountDue;
     }
 
-    public Double getAmountPaid() {
+    public BigDecimal getAmountPaid() {
         return amountPaid;
     }
 
-    public void setAmountPaid(Double amountPaid) {
+    public void setAmountPaid(BigDecimal amountPaid) {
         this.amountPaid = amountPaid;
     }
 

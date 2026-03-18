@@ -5,13 +5,13 @@ import jakarta.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 public class ExamRequest {
-    @NotNull
+    @NotNull(message = "Class ID is required")
     private Long classId;
 
-    @NotNull
+    @NotNull(message = "Subject ID is required")
     private Long subjectId;
 
-    @NotNull
+    @NotNull(message = "Exam date is required")
     private LocalDate date;
 
     public Long getClassId() {
