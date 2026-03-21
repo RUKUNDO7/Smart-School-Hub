@@ -1,4 +1,7 @@
-.idea
-application.properties
+﻿.idea
 *.class
 *.log
+
+# Tests
+smart-school-hub/src/test/
+
